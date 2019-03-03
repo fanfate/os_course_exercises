@@ -30,11 +30,14 @@
 
 - 你理解的risc-v的特权模式有什么区别？不同模式在地址访问方面有何特征？
 
-    RISC-V架构定义了3种工作模式，又称为特权模式（Privileged Mode）。
+    RISC-V架构定义了4种工作模式，又称为特权模式（Privileged Mode）。
 
-    - Machine Mode：机器模式，简称M Mode。
-    - Supervisor Mode：监督模式，简称S Mode。
-    - User Mode：用户模式，简称U Mode。
+    - Machine Mode：机器模式，简称M-Mode。
+    - Hypervisor Mode: Hypervisor模式，简称H-Mode。
+    - Supervisor Mode：监督模式，简称S-Mode。
+    - User Mode：用户模式，简称U-Mode。
+
+    机器级是最高级特权，也是 RISC-V 硬件平台唯一必须的特权级。运行于机器模式（M-mode）下的代码是固有可信的（inherently trusted），因为它可以在低层次访问机器的实现。用户模式（U-mode）和管理员模式（S-mode）被分别用于传统应用程序和操作系统，而 Hypervisor 模式（H-mode）则是为了支持虚拟机监视器。
 
 - 理解ucore中list_entry双向链表数据结构及其4个基本操作函数和ucore中一些基于它的代码实现（此题不用填写内容）
 
